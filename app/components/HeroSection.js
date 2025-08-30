@@ -45,7 +45,7 @@ export default function HeroSection() {
   return (
     <>
       <div
-        className="hero-main w-full relative h-[440px] md:h-[700px]"
+        className="hero-main w-full relative h-[440px]   md:h-[500px] lg:h-[700px]"
         style={{
           backgroundImage: `url(${image})`,
           backgroundSize: "cover",

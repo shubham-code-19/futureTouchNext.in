@@ -79,7 +79,7 @@ const Testimonial = () => {
 
   return (
     <>
-      <section className="bg-none pt-20 px-0 sm:px-0 md:px-10 lg:px-28 overflow-hidden">
+      <section className="bg-none pt-20 px-0 sm:px-0 md:px-10 xl:px-28 overflow-hidden">
         <div className=" mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-12 gap-4 items-center">
             <div className="p-4 md:col-span-6">
@@ -145,53 +145,15 @@ const Testimonial = () => {
                   width="208"
                   height="80"
                 />
-                {/* <Slider {...settings}>
-                  {reviews.map((review, index) => (
-                    <div key={index}>
-                      <div className="testimonial-card bg-white relative w-full p-2 sm:p-2 md:p-5 lg:p-12 h-max rounded-lg mb-[1.8rem]">
-                        <div className="mb-10 text-lg leading-7">
-                          <p className="scrollable">{review.text}</p>
-                        </div>
-                        <div className="flex justify-between">
-                          <div className="flex gap-4 items-center">
-                            <div className="">
-                              <img
-                                src={review.profile_photo_url}
-                                alt={
-                                  review.author_name
-                                    ? review.author_name
-                                    : "user"
-                                }
-                                className="w-16 h-auto rounded-full"
-                                width="64"
-                                height="64"
-                              />
-                            </div>
-                            <div className="">
-                              <h5 className="font-bold text-xl">
-                                {review.author_name}
-                              </h5>
-                              <p className="flex gap-1 mt-1">
-                                {" "}
-                                {[...Array(review.rating)].map((_, i) => (
-                                  <FaStar key={i} className="text-[#ffb800] " />
-                                ))}
-                              </p>
-                            </div>
-                          </div>
-                          <FaQuoteRight className="w-24 text-[#00f2a6] text-6xl" />
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </Slider> */}
+               
 
 
                  <Swiper
-      modules={[ Pagination, Autoplay]}
+                 loop={true}
+      modules={[  Autoplay]}
       spaceBetween={20}
       slidesPerView={1}
-      pagination={{ clickable: true }}
+      // pagination={{ clickable: true }}
       autoplay={{ delay: 3000, disableOnInteraction: false }}
       className="testimonial-swiper"
     >

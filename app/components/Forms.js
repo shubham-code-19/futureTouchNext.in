@@ -56,6 +56,9 @@ const Forms = () => {
   };
 
   function onCaptchVerify() {
+    if (typeof window !== "undefined") {
+  
+}
     if (!window.recaptchaVerifier) {
       window.recaptchaVerifier = new RecaptchaVerifier(
         "recaptcha-container",
@@ -164,20 +167,7 @@ const Forms = () => {
     >
       <div id="recaptcha-container"></div>
       <div className="mx-auto relative">
-       {/* <img
-          src="https://webency.themejunction.net/wp-content/uploads/2024/03/h2-contact-right.webp"
-          alt="background-right"
-          className="absolute top-0 right-0 lg:w-2/3 opacity-20 lg:h-auto"
-          width={800}
-          height={600}
-        />
-       <img
-          src="https://webency.themejunction.net/wp-content/uploads/2024/03/h2-contact-bg-2.webp"
-          alt="background-small"
-          className="hidden lg:block absolute top-0 right-0 w-60 h-auto"
-          width={240}
-          height={200}
-        /> */}
+      
 
         <div className="flex items-center flex-col p-3 sm:p-3 md:p-5 lg:p-16 lg:flex-row my-4">
           {/* Form Section */}

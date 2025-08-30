@@ -12,7 +12,7 @@ export default function Header() {
 
   useEffect(() => {
     const scrollHanlder = () => {
-      if (window.scrollY > 400) {
+      if (window.scrollY > 0) {
         setFixed(true);
       } else {
         setFixed(false);
@@ -69,22 +69,26 @@ export default function Header() {
   return (
     <div
       className={`${
-        fixed ? "bg-white top-0 shadow-md" : "pt-4"
+        fixed ? "bg-white top-0 shadow-md" : "pt-2 md:pt-4"
       } px-5 md:px-8 xl:px-20 fixed z-10 w-full `}
     >
-      <div className="bg-white flex items-center justify-between py-1 px-5 md:px-12 lg:px-5 xl:px-12 rounded-sm relative">
+      <div className={`bg-white flex items-center justify-between py-1 ${fixed ?"px-0":"px-5"}  md:px-12 lg:px-5 xl:px-12 rounded-sm relative`}>
         <div>
-          <img
+         <Link href="/">
+           <img
             src="/images/Header/secondary-logo.webp"
             alt="header logo"
             className="w-[180px]  xl:w-[280px]"
           />
+         </Link>
         </div>
         <ul className="hidden lg:flex items-center lg:gap-x-3 xl:gap-x-5">
           <li className="group block py-2 px-3 font-semibold md:hover:bg-transparent md:border-0 md:p-0 dark:text-black transition duration-300">
-            <span className="group-hover:bg-gradient-to-r group-hover:from-teal-400 group-hover:to-indigo-700 group-hover:text-transparent group-hover:bg-clip-text">
+            <Link href="/">
+              <span className="group-hover:bg-gradient-to-r group-hover:from-teal-400 group-hover:to-indigo-700 group-hover:text-transparent group-hover:bg-clip-text">
               Home
             </span>
+            </Link>
           </li>
 
           <li onMouseEnter={handleMouseEnter} className="relative">
@@ -100,8 +104,6 @@ export default function Header() {
               <span className="inline-block bg-gradient-to-r from-teal-400 group-hover:to-indigo-700  bg-clip-text transition duration-300">
                 <IoMdAdd className=" text-indigo-700 group-hover:text-indigo-700" />
               </span>
-
-             
 
               {isOpen && (
                 <ul
@@ -155,7 +157,7 @@ export default function Header() {
 
           <li className="group block py-2 px-3 font-semibold md:hover:bg-transparent md:border-0 md:p-0 dark:text-black transition duration-300">
             <Link
-              href="/about"
+              href="/service"
               onMouseEnter={handleMouseSecond}
               className="flex gap-x-2 items-center"
             >
@@ -165,7 +167,6 @@ export default function Header() {
               <span className="inline-block group-hover:bg-gradient-to-r group-hover:from-teal-400 group-hover:to-indigo-700 group-hover:text-transparent group-hover:bg-clip-text transition duration-300">
                 <IoMdAdd className="text-indigo-700 group-hover:text-indigo-700" />
               </span>
-             
             </Link>
           </li>
 

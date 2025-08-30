@@ -1,12 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "webency.themejunction.net",
-      },
-    ],
+  output: "export",
+   images: {
+    unoptimized: true, // ✅ disables optimization
   },
 };
 

@@ -14,7 +14,7 @@ export default function About() {
           />
         </div>
         <div className="relative flex w-11/12 sm:w-11/12 md:full lg:w-1/2 ">
-          <div className="hero-images mr-5 relative w-full pulse max-w-335 h-490">
+          <div className="hero-images mr-5 relative w-full pulse max-w-335 lg:h-490  ">
             <Image
               className="image-one object-cover"
               src="/Assets/hero-about-1.webp"
