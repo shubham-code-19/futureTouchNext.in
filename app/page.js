@@ -16,15 +16,15 @@ export default function page() {
   return (
     <div>
       <HeroSection/>
-      <About/>
+    <About/>
       <Service/>
-      <WhyChoose/>
-      <HelpingBusiness/>
+     <WhyChoose/>
+         <HelpingBusiness/>
       {/* <Heromatterjs/> */}
-      <Testimonial/>
-      <DigitalMarketingService/>
+       <Testimonial/>
+   <DigitalMarketingService/>
       <Faq/>
-      <Forms/>
+        {/* <Forms/> */}
     </div>
   )
 }

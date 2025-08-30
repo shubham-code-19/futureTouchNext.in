@@ -35,7 +35,7 @@ export default function Faq() {
   ];
   return (
     <>
-      <div className="relative ">
+      <div className="relative xl:pb-28 ">
         <Image
           src="/Assets/h2-faq-bg-right.webp"
           className="absolute right-0"

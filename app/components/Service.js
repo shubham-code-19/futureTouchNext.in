@@ -1,17 +1,30 @@
+"use client"
 import Image from "next/image";
 import Link from "next/link";
 import { FaArrowRight } from "react-icons/fa";
-
-
-
+import { useState, useEffect } from "react";
 
 export default function Service() {
+  const [expandedIndex, setExpandedIndex] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
 
-      const servicesData = [
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  const handleDescriptionClick = (idx) => {
+    if (!isMobile) return;
+    setExpandedIndex(expandedIndex === idx ? null : idx);
+  };
+
+  const servicesData = [
     {
       icon: "/Assets/data.webp",
       title: "Web Development",
-      linkhead:"",
+      linkhead: "",
       number: "01",
       description:
         "Your business can get a reliable facelift for long-term branding solutions across all verticals including e-commerce solutions and open source content management exclusively at Future IT Touch Pvt. Ltd.",
@@ -23,8 +36,7 @@ export default function Service() {
       couseseven: "React js",
       coursetwo: ".Net",
       coursethree: "Java",
-    
-    
+
       linksix: "/php-laravel-codeigniter-services",
       hoverImage: "/Assets/hero-about-1.webp",
       linktwo: "/php-laravel-codeigniter-services",
@@ -46,7 +58,7 @@ export default function Service() {
       courseone: "Magento",
       coursetwo: "WP",
       coursethree: "Shopify",
-    linksix: "/wordpress-and-shopify-development",
+      linksix: "/wordpress-and-shopify-development",
       coursefour: "Laravel",
       linktwo: "/wordpress-and-shopify-development",
       linkthree: "/wordpress-and-shopify-development",
@@ -69,7 +81,6 @@ export default function Service() {
       linktwo: "/ios-application-development",
       linkthree: "/android-application-development",
       linkfour: "/hybrid-application-development",
-     
     },
     {
       icon: "/Assets/future.webp",
@@ -88,7 +99,6 @@ export default function Service() {
       linktwo: "/reactjs-vuejs-nodejs-development-services",
       linkthree: "/reactjs-vuejs-nodejs-development-services",
       linkfour: "/reactjs-vuejs-nodejs-development-services",
-    
     },
     {
       icon: "/Assets/marketing.webp",
@@ -110,6 +120,7 @@ export default function Service() {
       linkfive: "/social-media-marketing-service",
     },
   ];
+
   return (
     <div>
       <div className="m-0 sm:m-0 md:m-5 lg:m-10">
@@ -185,17 +196,28 @@ export default function Service() {
                     <li className="border-r-2 text-nowrap border-gray-300 px-2">
                       <Link href={service.linksix}>{service.coursethree}</Link>
                     </li>
-                  {service.coursefour && service.linkfive && (
-  <li className="pl-2">
-    <Link href={service.linkfive}>{service.coursefour}</Link>
-  </li>
-)}
-
+                    {service.coursefour && service.linkfive && (
+                      <li className="pl-2">
+                        <Link href={service.linkfive}>
+                          {service.coursefour}
+                        </Link>
+                      </li>
+                    )}
                   </ul>
                 </h3>
               </div>
               <div className="flex gap-2 w-full sm:w-full md:w-full lg:w-10/12">
-                <p className="text-gray-600 text-lg mb-8 font-small text-justify line-clamp-2 hover:line-clamp-none">
+                <p
+                  className={`text-gray-600 text-lg mb-8 font-small text-justify ${
+                    isMobile
+                      ? expandedIndex === index
+                        ? ""
+                        : "line-clamp-2"
+                      : "line-clamp-2 hover:line-clamp-none"
+                  }`}
+                  style={{ cursor: isMobile ? "pointer" : "default" }}
+                  onClick={() => handleDescriptionClick(index)}
+                >
                   {service.description}
                 </p>
                 <FaArrowRight className="absolute w-10 h-10 top-10 sm:top:10 max-lg:hidden md:top-12 lg:top:14 right-7" />
